@@ -4,6 +4,6 @@ defmodule Identicon.Image do
   """
 
   #This defines the struct
-  defstruct hex: nil, colour: nil, grid: nil
+  defstruct hex: nil, colour: nil, grid: nil, pixel_map: nil
 
 end
