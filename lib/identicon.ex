@@ -19,6 +19,13 @@ defmodule Identicon do
     |> mirror_row
   end
 
+  def mirror_row(row) do
+    [first, second | _tail] = row
+
+    #This mirrors the row. ++ is how we append a two lists
+    row ++ [second, first]
+  end
+
   @doc """
     This gets the first three values from the hexlist to get a RGB colour.
     This pattern matching on the struct to get the first three values
