@@ -11,6 +11,16 @@ defmodule Identicon do
     |> hash_input
     |> pick_colour
     |> build_grid
+    |> filter_odd_squares
+  end
+
+  def filter_odd_squares(%Identicon.Image{grid: grid} = image) do
+    #This will return true if is divisble by zero, else return true
+    Enum.filter grid, fn({code, _index}) ->
+      rem(code, 2)  == 0 #calculates remainder
+    end
+
+    %Identicon.Image{image | grid: grid}
   end
 
   def build_grid(%Identicon.Image{hex: hex} = image) do
