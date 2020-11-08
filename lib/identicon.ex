@@ -16,13 +16,17 @@ defmodule Identicon do
     This gets the first three values from the hexlist to get a RGB colour.
     This pattern matching on the struct to get the first three values
   """
-  def pick_colour(image) do
-    %Identicon.Image{hex: [r, g, b | _tail]} = image
+  def pick_colour(%Identicon.Image{hex: [r, g, b | _tail]} = image) do
+
+    #The parameter is the same as the commented code belo. You can pattern match as you receive the argument
+    #%Identicon.Image{hex: [r, g, b | _tail]} = image
+
     #This gets the first three values, and acknowledges the rest of the values
     #but we don't actualyl care about it. It is the same as the commented code below
     #[r, g, b | _tail] = hex_list
 
-    [r, g, b]
+    #'Updating' struct property
+    %Identicon.Image{image | colour: {r, g, b}}
   end
 
   @doc """
